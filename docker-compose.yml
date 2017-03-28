@@ -1,0 +1,24 @@
+version: '2'
+services:
+
+  config:
+    environment:
+      CONFIG_SERVICE_PASSWORD: CONFIG_SERVICE_PASSWORD
+    image: config
+    restart: always
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "10"
+
+  registry:
+    environment:
+      CONFIG_SERVICE_PASSWORD: CONFIG_SERVICE_PASSWORD
+    image: registry
+    restart: always
+    ports:
+      - 8761:8761
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "10"

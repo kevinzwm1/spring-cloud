@@ -1,0 +1,39 @@
+
+
+#id: The id of the resource. The id is only used by the client to lookup the resource; it's never used in the OAuth protocol. It's also used as the id of the bean.
+#clientId: The OAuth client id. This is the id by which the OAuth provider identifies your client.
+#clientSecret: The secret associated with the resource. By default, no secret is empty.
+#accessTokenUri: The URI of the provider OAuth endpoint that provides the access token.
+#scope: Comma-separted list of strings specifying the scope of the access to the resource. By default, no scope will be specified.
+#clientAuthenticationScheme: The scheme used by your client to authenticate to the access token endpoint. Suggested values: "http_basic" and "form". Default: "http_basic". See section 2.1 of the OAuth 2 spec.
+#Different grant types have different concrete implementations of OAuth2ProtectedResourceDetails (e.g. ClientCredentialsResource for "client_credentials" grant type). For grant types that require user authorization there is a further property:
+#
+#userAuthorizationUri: The uri to which the user will be redirected if the user is ever needed to authorize access to the resource. Note that this is not always required, depending on which OAuth 2 profiles are supported.
+
+
+
+#Grant Type: Client Credentials
+#https://oauth.example.com/token?grant_type=client_credentials&client_id=CLIENT_ID&client_secret=CLIENT_SECRET
+
+
+security:
+  oauth2:
+    client:
+      clientId: account-service
+      clientSecret: ACCOUNT_SERVICE_PASSWORD
+      accessTokenUri: http://localhost:4000/uaa/oauth/token
+      grant-type: client_credentials
+      scope: server
+
+spring:
+  data:
+    mongodb:
+      host: localhost
+      username: kevin1
+      password: abc123
+      database: test
+      port: 27017
+
+server:
+  context-path: /accounts
+  port: 6000

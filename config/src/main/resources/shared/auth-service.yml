@@ -1,0 +1,13 @@
+spring:
+  data:
+    mongodb:
+      host: localhost
+      username: kevin1
+#      password: abc123
+      password: '{cipher}AD74B6FC067E6A8D08DD179EAE4BA12AB7EEDB5FD88D043ACC148488B6AF736'
+      database: test
+      port: 27017
+
+server:
+  context-path: /uaa
+  port: 5001

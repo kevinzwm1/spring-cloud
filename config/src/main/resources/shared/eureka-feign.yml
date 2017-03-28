@@ -1,0 +1,12 @@
+spring:
+  data:
+    mongodb:
+      host: localhost
+      username: kevin1
+      password: abc123
+      database: test
+      port: 27017
+
+server:
+  context-path: /feign-consumer
+  port: 3334
